@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page-actions-cont {
+  height: 3rem;
+  display: flex;
+  /* gap: 1rem; */
+  background-color: #218c74;
+  align-items: flex-end;
+  padding-left: 1rem;
+}
+
+.page-actions {
+  margin: 0.5rem;
+  color: #f1f2f6;
+}
+
+.cellprop-actions-cont {
+  height: 3rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.cellprop-actions-cont > * {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.cellprop-actions-cont > select {
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+
+.font-family-prop {
+  padding: 0.2rem;
+}
+
+.font-size-prop {
+  padding: 0.2rem;
+}
+
+.formula-actions-cont {
+  height: 2rem;
+  background-color: #ecf0f1;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.formula-actions-cont > * {
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+
+.formula-icon {
+  width: 1.2rem;
+}
+
+.address-bar {
+  width: 5rem;
+  text-align: center;
+}
+
+.formula-bar {
+  width: calc(100vw - 5rem - 0.7rem - 0.7rem - 0.7rem);
+}
+
+.formula-actions-cont > input {
+  border: none;
+  outline: none;
+  height: 70%;
+}
+
+.sheet-actions-cont {
+  height: 3rem;
+  background-color: #ecf0f1;
+  display: flex;
+  align-items: center;
+}
+
+.sheet-actions-cont > * {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.sheet-add-icon > * {
+  display: inline-block;
+  width: 2vw;
+}
+
+.sheets-folder-cont {
+  display: flex;
+  height: 80%;
+  /* background-color: yellow; */
+  width: calc(100vw - 2vw);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sheet-folder {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.grid-cont {
+  height: calc(100vh - 3rem - 3rem - 2rem - 3rem);
+  position: relative;
+  background-color: #ecf0f1;
+  overflow: scroll;
+}
+
+.top-left-dummy-box {
+  height: 2rem;
+  width: 2rem;
+  background-color: #747d8c;
+  position: fixed;
+  z-index: 5;
+}
+
+.address-col-cont {
+  /* height: 10rem;
+  width: 2rem; */
+  position: sticky;
+  top: 2rem;
+  left: 0;
+}
+
+.address-row-cont {
+  height: 2rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.cells-cont {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+
+.address-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid #dfe4ea;
+}
+
+.address-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+}
+
+.row-cont {
+  display: flex;
+}
+
+.cell {
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  outline: none;
+}

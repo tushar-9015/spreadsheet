@@ -115,20 +115,36 @@ body {
   width: 2vw;
 }
 
+.sheet-add-icon {
+  cursor: pointer;
+}
+
 .sheets-folder-cont {
   display: flex;
   height: 80%;
   /* background-color: yellow; */
+  width: 5rem;
   width: calc(100vw - 2vw);
   align-items: center;
-  gap: 1.5rem;
+  overflow: auto;
+  /* gap: 1.5rem; */
+}
+
+.sheet-content {
+  width: 5rem;
 }
 
 .sheet-folder {
+  height: 80%;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   font-weight: 600;
   font-size: 0.9rem;
+  /* background-color: aqua; */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-cont {

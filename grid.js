@@ -1,51 +1,48 @@
-let cellsRow = 100;
-let cellsColumn = 26;
+let rows = 100;
+let cols = 26;
 
-const addressColCont = document.querySelector(".address-col-cont");
-const addressRowCont = document.querySelector(".address-row-cont");
-const cellsCont = document.querySelector(".cells-cont");
-const addressBar = document.querySelector(".address-bar");
+let addressColCont = document.querySelector(".address-col-cont");
+let addressRowCont = document.querySelector(".address-row-cont");
+let cellsCont = document.querySelector(".cells-cont");
+let addressBar = document.querySelector(".address-bar");
 
-for (i = 0; i < cellsRow; i++) {
+for (let i = 0; i < rows; i++) {
   let addressCol = document.createElement("div");
   addressCol.setAttribute("class", "address-col");
-  addressCol.innerHTML = i + 1;
+  addressCol.innerText = i + 1;
   addressColCont.appendChild(addressCol);
 }
 
-for (i = 0; i < cellsColumn; i++) {
+for (let i = 0; i < cols; i++) {
   let addressRow = document.createElement("div");
   addressRow.setAttribute("class", "address-row");
-  addressRow.innerHTML = String.fromCharCode(65 + i);
+  addressRow.innerText = String.fromCharCode(65 + i);
   addressRowCont.appendChild(addressRow);
 }
 
-for (i = 0; i < cellsRow; i++) {
+for (let i = 0; i < rows; i++) {
   let rowCont = document.createElement("div");
   rowCont.setAttribute("class", "row-cont");
-  for (j = 0; j < cellsColumn; j++) {
+  for (let j = 0; j < cols; j++) {
     let cell = document.createElement("div");
     cell.setAttribute("class", "cell");
     cell.setAttribute("contenteditable", "true");
     cell.setAttribute("spellcheck", "false");
 
-    //Attributes for cell and storage identification
+    // Attributes for cell and storage identification
     cell.setAttribute("rid", i);
     cell.setAttribute("cid", j);
-    addListnerCellAddress(cell, i, j);
+
     rowCont.appendChild(cell);
+    addListenerForAddressBarDisplay(cell, i, j);
   }
   cellsCont.appendChild(rowCont);
 }
 
-function addListnerCellAddress(cell, i, j) {
-  cell.addEventListener("click", () => {
-    let rowId = i + 1;
-    let colId = String.fromCharCode(65 + j);
-    addressBar.value = `${colId}${rowId}`;
+function addListenerForAddressBarDisplay(cell, i, j) {
+  cell.addEventListener("click", (e) => {
+    let rowID = i + 1;
+    let colID = String.fromCharCode(65 + j);
+    addressBar.value = `${colID}${rowID}`;
   });
 }
-
-//By default click on first cell via DOM
-let firstCell = document.querySelector(".cell");
-firstCell.click();

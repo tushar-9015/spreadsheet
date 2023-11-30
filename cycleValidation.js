@@ -1,38 +1,35 @@
-// Storage -> 2D matrix (Basic needed)
+// Storage -> 2D array (Basic needed)
+let collectedGraphComponent = [];
 let graphComponentMatrix = [];
 
-for (let i = 0; i < cellsRow; i++) {
-  let row = [];
+// for (let i = 0; i < rows; i++) {
+//     let row = [];
+//     for (let j = 0; j < cols; j++) {
+//         // Why array -> More than 1 child relation(dependency)
+//         row.push([]);
+//     }
+//     graphComponentMatrix.push(row);
+// }
 
-  for (let j = 0; j < cellsColumn; j++) {
-    // why array -> more than 1 child relation(dependency)
-    row.push([]);
-  }
-  graphComponentMatrix.push(row);
-}
+// True -> cyclic, False -> Not cyclic
+function isGraphCylic(graphComponentMatrix) {
+  // Dependency -> visited, dfsVisited (2D array)
+  let visited = []; // Node visit trace
+  let dfsVisited = []; // Stack visit trace
 
-// true -> cyclic and false -> not cyclic
-function checkIsGraphCyclic(graphComponentMatrix) {
-  //Dependecy -> visited, dfsVsited (2D array)
-  let visited = [];
-  let dfsVisited = [];
-
-  for (let i = 0; i < cellsRow; i++) {
+  for (let i = 0; i < rows; i++) {
     let visitedRow = [];
     let dfsVisitedRow = [];
-
-    for (let j = 0; j < cellsColumn; j++) {
-      // default
+    for (let j = 0; j < cols; j++) {
       visitedRow.push(false);
       dfsVisitedRow.push(false);
     }
-
     visited.push(visitedRow);
     dfsVisited.push(dfsVisitedRow);
   }
 
-  for (let i = 0; i < cellsRow; i++) {
-    for (let j = 0; j < cellsColumn; j++) {
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
       if (visited[i][j] === false) {
         let response = dfsCycleDetection(
           graphComponentMatrix,
@@ -41,19 +38,21 @@ function checkIsGraphCyclic(graphComponentMatrix) {
           visited,
           dfsVisited
         );
-        if (response === true) return [i, j]; // Found cycle so return immediately, no need to explore more path
+        // Found cycle so return immediately, no need to explore more path
+        if (response == true) return [i, j];
       }
     }
   }
+
   return null;
 }
 
-//Start -> vis(true) dfs(true)
-//End -> dfs(false)
-//if vis[i][j] -> already explored path, so go back no use to explore again
-//Cycle detection condition -> if (vis[i][j] == true && dfs[i][j] == true) -> cycle
-//Return -> true/false
-//True -> Cyclic, False -> Not cyclic
+// Start -> vis(TRUE) dfsVis(TRUE)
+// End -> dfsVis(FALSE)
+// If vis[i][j] -> already explored path, so go back no use to explore again
+// Cycle detection condition -> if (vis[i][j] == true && dfsVis[i][j] == true) -> cycle
+// Return -> True/False
+// True -> cyclic, False -> Not cyclic
 function dfsCycleDetection(
   graphComponentMatrix,
   srcr,
@@ -64,25 +63,28 @@ function dfsCycleDetection(
   visited[srcr][srcc] = true;
   dfsVisited[srcr][srcc] = true;
 
+  // A1 -> [ [0, 1], [1, 0], [5, 10], .....  ]
   for (
     let children = 0;
     children < graphComponentMatrix[srcr][srcc].length;
     children++
   ) {
-    let [nbr, nbc] = graphComponentMatrix[srcr][srcc][children];
-    if (visited[nbr][nbc] === false) {
+    let [nbrr, nbrc] = graphComponentMatrix[srcr][srcc][children];
+    if (visited[nbrr][nbrc] === false) {
       let response = dfsCycleDetection(
         graphComponentMatrix,
-        nbr,
-        nbc,
+        nbrr,
+        nbrc,
         visited,
         dfsVisited
       );
-      if (response === true) {
-        return true; // Found cycle so return immediately, no need to explore more path
-      }
-    } else if (visited[nbr][nbc] === true && dfsVisited[nbr][nbc] === true) {
-      return true; // Found cycle so return immediately, no need to explore more path
+      if (response === true) return true; // Found cycle so return immediately, no need to explore more path
+    } else if (
+      visited[nbrr][nbrc] === true &&
+      dfsVisited[nbrr][nbrc] === true
+    ) {
+      // Found cycle so return immediately, no need to explore more path
+      return true;
     }
   }
 

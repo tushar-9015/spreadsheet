@@ -3,36 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Excel</title>
 </head>
 
 <body>
     <div class="page-actions-cont">
-        <div class="page-actions">File</div>
-        <div class="page-actions">Home</div>
-        <div class="page-actions">Insert</div>
-        <div class="page-actions">Layout</div>
-        <div class="page-actions">Help</div>
+        <div class="page-action">Home</div>
+        <div class="page-action selected-page-action">File</div>
+        <div class="page-action">Insert</div>
+        <div class="page-action">Layout</div>
+        <div class="page-action">Help</div>
     </div>
     <div class="cellprop-actions-cont">
-        <span class="material-icons">
+        <span class="material-icons copy">
             content_copy
         </span>
-        <span class="material-icons">
+        <span class="material-icons cut">
             content_cut
         </span>
-        <span class="material-icons">
+        <span class="material-icons paste">
             content_paste
         </span>
-
         <select class="font-family-prop">
             <option value="monospace">Monospace</option>
-            <option value="sans-serif">sans-serif</option>
+            <option value="sans-serif">Sans-Serif</option>
             <option value="fantasy">Fantasy</option>
             <option value="cursive">Cursive</option>
         </select>
@@ -51,34 +49,38 @@
         <span class="material-icons underline">
             format_underlined
         </span>
-        <span class="material-icons alignment left">
+        <span class="left material-icons alignment">
             format_align_left
         </span>
-        <span class="material-icons alignment center">
+        <span class="center material-icons alignment">
             format_align_center
         </span>
-        <span class="material-icons alignment right">
+        <span class="right material-icons alignment">
             format_align_right
         </span>
-        <div class="color-prop ">
+        <div class="color-prop">
             <span class="material-icons">
                 format_color_text
             </span>
             <input type="color" class="font-color-prop">
         </div>
-
         <div class="color-prop">
             <span class="material-icons">
                 format_color_fill
             </span>
             <input type="color" class="BGcolor-prop">
         </div>
-
+        <span class="material-icons download">
+            cloud_download
+        </span>
+        <span class="material-icons open">
+            cloud_upload
+        </span>
     </div>
     <div class="formula-actions-cont">
-        <input class="address-bar" type="text" readonly />
-        <img class="formula-icon" src="https://img.icons8.com/?size=50&id=39154&format=png" alt="formula" />
-        <input class="formula-bar" type="text" />
+        <input type="text" readonly class="address-bar">
+        <img class="formula-icon" src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
+        <input type="text" class="formula-bar">
     </div>
     <div class="grid-cont">
         <div class="top-left-dummy-box"></div>
@@ -96,7 +98,6 @@
         <div class="sheets-folder-cont">
         </div>
     </div>
-    </div>
 
     <script src="./grid.js"></script>
     <script src="./cyclicPathTrace.js"></script>
@@ -104,10 +105,8 @@
     <script src="./sheetsHandling.js"></script>
     <script src="./cell-properties.js"></script>
     <script src="./formula.js"></script>
-
-
-
-
+    <script src="./cutCopyPaste.js"></script>
+    <script src="./openSave.js"></script>
 </body>
 
 </html>

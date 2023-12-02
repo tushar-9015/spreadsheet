@@ -1,27 +1,31 @@
 * {
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
 }
-
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .page-actions-cont {
   height: 3rem;
-  display: flex;
-  /* gap: 1rem; */
   background-color: #218c74;
+  display: flex;
   align-items: flex-end;
   padding-left: 1rem;
 }
-
-.page-actions {
-  margin: 0.5rem;
+.page-action {
+  width: 3.5rem;
+  height: 2rem;
+  text-align: center;
   color: #f1f2f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.selected-page-action {
+  background-color: #f1f2f6;
+  color: #218c74;
+}
 .cellprop-actions-cont {
   height: 3rem;
   background-color: #ecf0f1;
@@ -29,43 +33,24 @@ body {
   align-items: center;
   padding-left: 1rem;
 }
-
 .cellprop-actions-cont > * {
   display: inline-block;
   margin-right: 1rem;
 }
-
 .cellprop-actions-cont > *:hover {
   cursor: pointer;
 }
-
 .cellprop-actions-cont > select {
   border: none;
   border-radius: 2px;
   outline: none;
 }
-
 .font-family-prop {
   padding: 0.2rem;
 }
-
 .font-size-prop {
   padding: 0.2rem;
 }
-
-.color-prop {
-  position: relative;
-}
-
-.color-prop > input {
-  position: absolute;
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
 .formula-actions-cont {
   height: 2rem;
   background-color: #ecf0f1;
@@ -73,85 +58,74 @@ body {
   display: flex;
   align-items: center;
 }
-
 .formula-actions-cont > * {
   display: inline-block;
   margin-right: 0.7rem;
 }
-
 .formula-icon {
   width: 1.2rem;
 }
-
 .address-bar {
   width: 5rem;
   text-align: center;
 }
-
 .formula-bar {
   width: calc(100vw - 5rem - 0.7rem - 0.7rem - 0.7rem);
 }
-
 .formula-actions-cont > input {
   border: none;
   outline: none;
   height: 70%;
 }
-
 .sheet-actions-cont {
   height: 3rem;
-  background-color: #ecf0f1;
   display: flex;
   align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  gap: 1rem;
+  background-color: #ecf0f1;
 }
-
 .sheet-actions-cont > * {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.sheet-add-icon > * {
   display: inline-block;
+}
+.sheet-add-icon {
   width: 2vw;
 }
-
-.sheet-add-icon {
-  cursor: pointer;
+.sheet-add-icon:hover {
+  cursor: default;
 }
 
 .sheets-folder-cont {
   display: flex;
+  align-items: center;
   height: 80%;
-  /* background-color: yellow; */
   width: 5rem;
   width: calc(100vw - 2vw);
-  align-items: center;
   overflow: auto;
-  /* gap: 1.5rem; */
 }
-
-.sheet-content {
-  width: 5rem;
-}
-
 .sheet-folder {
   height: 80%;
   text-decoration: underline;
+  font-weight: bold;
   text-decoration-thickness: 3px;
-  font-weight: 600;
   font-size: 0.9rem;
-  /* background-color: aqua; */
-  display: flex;
+  /* background-color: lightblue; */
   text-align: center;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+.sheet-content {
+  width: 5rem;
+  /* background-color: lightgreen; */
 }
 
 .grid-cont {
   height: calc(100vh - 3rem - 3rem - 2rem - 3rem);
   position: relative;
-  background-color: #ecf0f1;
   overflow: scroll;
+  background-color: #ecf0f1;
 }
 
 .top-left-dummy-box {
@@ -159,25 +133,19 @@ body {
   width: 2rem;
   background-color: #747d8c;
   position: fixed;
-  z-index: 5;
+  z-index: 4;
 }
-
 .address-col-cont {
-  /* height: 10rem;
-  width: 2rem; */
   position: sticky;
   top: 2rem;
   left: 0;
 }
-
 .address-row-cont {
-  height: 2rem;
   display: flex;
   position: sticky;
   top: 0;
-  left: 0;
+  left: 2rem;
 }
-
 .cells-cont {
   position: absolute;
   top: 0;
@@ -185,30 +153,39 @@ body {
 }
 
 .address-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 2rem;
   width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #dfe4ea;
 }
-
 .address-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 2rem;
   width: 5rem;
   border: 1px solid #dfe4ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .row-cont {
   display: flex;
 }
-
 .cell {
   height: 2rem;
   width: 5rem;
   border: 1px solid #dfe4ea;
   outline: none;
+}
+
+.color-prop {
+  position: relative;
+}
+.color-prop > input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
